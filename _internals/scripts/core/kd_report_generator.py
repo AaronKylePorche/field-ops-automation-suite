@@ -1,7 +1,7 @@
 """
-SASCO Dual Report Generator
-============================
-Generates two reports from CHP 2.5 workbook:
+Dual Report Generator
+=====================
+Generates two reports from tracking workbook:
 1. New Development Report (TD worksheet, filter AF blank)
 2. Car Hit Pole Report (MainSheet worksheet, filter AE blank)
 
@@ -27,10 +27,10 @@ import config
 NEW_DEV_COLUMN_MAPPING = {
     'C': 'District',
     'D': 'Work Order #',
-    'I': 'SASCO WO Received Date',
-    'K': 'SASCO Service Pricing Submitted',
+    'I': 'WO Received Date',
+    'K': 'Service Pricing Submitted',
     'Y': 'Civil Release Date',
-    'R': 'SASCO PO Received Date',
+    'R': 'PO Received Date',
     'AA': 'Fixture ETA from Wesco',
     'AB': 'Pole ETA From Ameron',
     'AE': 'Foundation Installation Date',
@@ -47,8 +47,8 @@ CAR_HIT_POLE_COLUMN_MAPPING = {
     'C': 'District',
     'D': 'Work Order #',
     'I': 'Sasco WO Received Date',
-    'K': 'SASCO Service Pricing Submitted',
-    'R': 'SASCO PO Received Date',
+    'K': 'Service Pricing Submitted',
+    'R': 'PO Received Date',
     'Z': 'Fixture ETA From Wesco',
     'AA': 'Pole ETA From Ameron',
     'J': 'Pole Installation Date',
@@ -178,7 +178,7 @@ def save_new_development_report(df_report):
 
     # Generate filename with current date (using hyphens instead of slashes for valid filename)
     today = datetime.now().strftime('%m-%d-%y')
-    filename = f"SASCO New Development Report {today}.xlsx"
+    filename = f"New Development Report {today}.xlsx"
     output_path = os.path.join(OUTPUT_FOLDER, filename)
 
     # Remove timezone information by processing each cell individually
@@ -296,7 +296,7 @@ def save_car_hit_pole_report(df_report):
 
     # Generate filename with current date
     today = datetime.now().strftime('%m-%d-%y')
-    filename = f"SASCO Car Hit Pole Report {today}.xlsx"
+    filename = f"Car Hit Pole Report {today}.xlsx"
     output_path = os.path.join(OUTPUT_FOLDER, filename)
 
     # Aggressive timezone stripping - iterate through ALL cells
@@ -454,7 +454,7 @@ def main():
     """Main execution function - generates both reports and emails them"""
     try:
         print("=" * 70)
-        print("SASCO Dual Report Generator")
+        print("Dual Report Generator")
         print("=" * 70)
         print()
 
@@ -497,7 +497,7 @@ def main():
 
         # Create email subject with today's date
         today = datetime.now().strftime('%m-%d-%y')
-        subject = f"SASCO Reports for {today}"
+        subject = f"Reports for {today}"
 
         # Send email with both attachments
         send_email(attachment_paths, subject)

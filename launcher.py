@@ -1,6 +1,6 @@
 """
-Bismillah - KD Assistant Launcher
-==================================
+Field Ops Automation Suite - Main Launcher
+===========================================
 Main application launcher that reads configuration from config/config.py
 
 This launcher:
@@ -52,7 +52,7 @@ except ImportError:
     sys.exit(1)
 
 # Set up console window
-os.system('title 🟢 KD Assistant Launcher')
+os.system('title 🟢 Field Ops Automation Suite')
 os.system('color 0A')  # Green text on black background
 
 # ============================================================================
@@ -174,7 +174,7 @@ def show_menu():
     """Display the main menu of available scripts"""
     os.system('color 0A')
     print("\n" + "="*60)
-    print(f"  🟢 KD Assistant")
+    print(f"  🟢 Field Ops Automation Suite")
     print(f"  User: {config.USER_NAME}")
     print("="*60 + "\n")
 
@@ -224,7 +224,7 @@ def run_script(choice):
             try:
                 if os.path.exists(script_path):
                     script_name = os.path.splitext(os.path.basename(script_path))[0]
-                    title = f'{script_name} — KD Assistant'
+                    title = f'{script_name} — Field Ops Automation Suite'
                     # Use /k to keep windows open; need proper quoting for paths with spaces
                     # Format: cmd /k ""python.exe" "script.py""
                     cmd = f'start "{title}" cmd /k ""{sys.executable}" "{script_path}""'

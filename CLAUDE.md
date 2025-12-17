@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**KD Assistant (G5 Tools)** is a Windows automation suite for SCE (Southern California Edison) claims processing, document management, and reporting. The system uses a **configuration-driven architecture** where all customization happens in a single file (`_internals/config/config.py`), making it portable and easy to deploy.
+**Field Ops Automation Suite** is a Windows automation suite for utility field operations including claims processing, document management, and reporting. The system uses a **configuration-driven architecture** where all customization happens in a single file (`_internals/config/config.py`), making it portable and easy to deploy.
 
 ## Architecture
 
 ### Core Components
 
-1. **Launcher System** (`KD Assistant.py`)
+1. **Launcher System** (`launcher.py`)
    - Menu-driven interface that dynamically discovers scripts from config.py
    - Handles both foreground (blocking) and background (windowed) execution modes
    - Scripts are registered in `config.py` SCRIPTS dictionary with menu numbers as keys
@@ -144,7 +144,7 @@ if tickets:
        "description": "Brief description"
    }
    ```
-4. **Test** by running `KD Assistant.py` and selecting the menu option
+4. **Test** by running `launcher.py` and selecting the menu option
 
 ### Creating a New Report Script
 
@@ -192,7 +192,7 @@ ws.conditional_formatting.add('L2:L100', color_scale)
 
 All scripts can run standalone:
 ```bash
-cd "C:\Path\To\G5 Tools"
+cd "C:\Path\To\field-ops-automation-suite"
 python "_internals\scripts\core\kd_report_generator.py"
 ```
 
@@ -327,6 +327,6 @@ The system is designed for zero-configuration deployment:
 1. Extract zip to any location
 2. Edit config.py (update paths, emails)
 3. Run setup.bat (installs Python + dependencies)
-4. Launch KD Assistant.py
+4. Launch launcher.py
 
 All scripts automatically adapt to new BASE_DIR location.

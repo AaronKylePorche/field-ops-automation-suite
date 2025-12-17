@@ -1,6 +1,6 @@
 """
-CONFIGURATION FILE FOR KD ASSISTANT (G5 TOOLS)
-===============================================
+CONFIGURATION FILE FOR FIELD OPS AUTOMATION SUITE
+===================================================
 
 SETUP INSTRUCTIONS:
 1. Replace all placeholder values with your actual paths and settings:
@@ -15,8 +15,8 @@ Customize your local copy - git will not track your personal changes.
 
 =============================================================================
 
-KD Assistant Configuration File
-=================================
+Field Ops Automation Suite - Configuration File
+================================================
 Edit this file to customize the script launcher for your system.
 All paths are relative to the installation folder.
 
@@ -24,7 +24,7 @@ INSTRUCTIONS:
 1. Update USER_NAME to your actual name
 2. Verify all file paths exist and are correct
 3. Enable/disable scripts by changing ENABLED to True/False
-4. Save and run Bismillah.py
+4. Save and run launcher.py
 """
 
 import os
@@ -84,10 +84,10 @@ SCRIPTS = {
     },
 
     "4": {
-        "name": "📊 Generate SASCO New Development Report",
+        "name": "📊 Generate New Development Report",
         "path": os.path.join(BASE_DIR, "_internals", "scripts", "core", "kd_report_generator.py"),
         "enabled": True,
-        "description": "Generate filtered TD report and create draft email"
+        "description": "Generate filtered development report and create draft email"
     },
 
     # ========================= JIS SCRIPTS =========================

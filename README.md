@@ -1,4 +1,4 @@
-# KD Assistant (G5 Tools)
+# Field Ops Automation Suite
 
 **Windows Automation Suite for Claims Processing, Document Management, and Reporting**
 
@@ -14,7 +14,7 @@ A configuration-driven automation framework designed for streamlining workflow o
 
 ### Report Generation
 - **Daily LED Change-Out Reports** - Automated reporting for lighting replacement projects
-- **SASCO New Development Reports** - Filtered data reports with automated email drafts
+- **New Development Reports** - Filtered data reports with automated email drafts
 - **Job Instruction Sheets (JIS)** - Automated generation from Excel templates with LED/HPSV/MH conversion
 
 ### Background Services
@@ -142,7 +142,7 @@ These files are tracked in git with safe placeholder values. Customize them for 
 Run the main launcher to access all tools:
 
 ```bash
-python "KD Assistant.py"
+python "launcher.py"
 ```
 
 ### Menu Options
@@ -155,7 +155,7 @@ python "KD Assistant.py"
 [1] Add Claims To Tracker
 [2] 🧩 Combine Claims & Permits
 [3] 💡 Run Daily LED Change Out Report
-[4] 📊 Generate SASCO New Development Report
+[4] 📊 Generate New Development Report
 [5] Run JIS Automation
 [6] Create Master JIS File
 [7] Launch Claim Watcher Suite (Background Services)
@@ -183,8 +183,8 @@ All customization happens in a single file (`_internals/config/config.py`), maki
 ### Project Structure
 
 ```
-KD Assistant/
-├── KD Assistant.py           # Main launcher
+field-ops-automation-suite/
+├── launcher.py               # Main launcher
 ├── setup.bat                 # Dependency installer
 ├── CLAUDE.md                 # Developer documentation
 ├── requirements.txt          # Python dependencies
@@ -244,7 +244,7 @@ outlook = win32.Dispatch("Outlook.Application")
 }
 ```
 
-4. Run `KD Assistant.py` to see your new menu option
+4. Run `launcher.py` to see your new menu option
 
 ## Development
 
