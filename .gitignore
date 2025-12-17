@@ -1,0 +1,52 @@
+# Secrets and API keys
+.env
+.env.local
+.env.*.local
+
+# Note: config.py is tracked with placeholder values - users customize their local copy
+
+# Real data files (input/output)
+input/**/*
+!input/**/.gitkeep
+output/**/*
+!output/**/.gitkeep
+
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+_internals/setup_log.txt
+_internals/scripts/core/Logs/*.xlsx
+
+# Queue files (temporary processing tickets)
+_internals/queue/*.txt
+!_internals/queue/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.nul
+nul
+
+# Testing/Development
+_DEVELOPER_NOTES/
+TESTING CONVERSATIONS/

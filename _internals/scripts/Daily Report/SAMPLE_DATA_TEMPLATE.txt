@@ -1,0 +1,105 @@
+# Sample Data Template for Daily Report
+
+This file describes the format expected by the Daily Report script.
+
+## What You Need
+
+An Excel file (.xlsx, .xls, or .xlsm) with at least one column named:
+  "LED Change Date"
+
+## Example Excel Layout
+
+Your Excel file should look something like this:
+
+┌─────────────────┬──────────────┬─────────────────┐
+│ LED Change Date │ Region       │ Change Type     │
+├─────────────────┼──────────────┼─────────────────┤
+│ 2025-01-15      │ Ventura      │ Bulb Replaced   │
+│ 2025-01-15      │ Ventura      │ Socket Fixed    │
+│ 2025-01-16      │ Ventura      │ Bulb Replaced   │
+│ 2025-01-16      │ Fontana      │ Rewiring        │
+│ 2025-01-16      │ Ventura      │ Bulb Replaced   │
+│ 2025-01-17      │ Fontana      │ Bulb Replaced   │
+└─────────────────┴──────────────┴─────────────────┘
+
+## Required Column
+
+MUST HAVE (exact name required):
+  - "LED Change Date" - The date column (any date format Excel recognizes)
+
+## Optional Columns
+
+You can add any other columns you want, such as:
+  - "Region" - Which location/region
+  - "Change Type" - Type of change
+  - "Notes" - Additional notes
+  - "Technician" - Who made the change
+  - etc.
+
+The script ONLY looks at the "LED Change Date" column.
+Other columns are ignored.
+
+## Date Formats Accepted
+
+The script accepts many date formats:
+  - 2025-01-15 (YYYY-MM-DD)
+  - 1/15/2025 (M/D/YYYY)
+  - 15-Jan-2025
+  - Jan 15, 2025
+  - As long as Excel recognizes it as a date, it works
+
+## Steps to Create Your File
+
+1. Open Microsoft Excel or Google Sheets
+2. In cell A1, type: LED Change Date
+3. In A2 onwards, enter your dates
+4. Add other columns if you want (B, C, D, etc.)
+5. Save as: YourFileName.xlsx
+6. Move to: scripts/Daily Report/Input/
+7. Run the Daily Report script
+
+## Important Notes
+
+- The column name IS case-sensitive (must be exactly "LED Change Date")
+- Dates must be in Excel's Date format (not text)
+- You can have as many rows as you want
+- You can have as many additional columns as you want
+- The script automatically finds the latest .xlsx file in the Input folder
+
+## Quick Test File
+
+If you want to test the script without real data:
+
+1. Create a new Excel file
+2. In A1: "LED Change Date"
+3. In A2: 2025-01-15
+4. In A3: 2025-01-16
+5. In A4: 2025-01-17
+6. Save and run the script
+
+That's it! The script will generate a report for those 3 days.
+
+## Real Data Example
+
+Here's a complete example file structure:
+
+┌─────────────────┬────────────┬──────────────────┐
+│ LED Change Date │ Technician │ Notes            │
+├─────────────────┼────────────┼──────────────────┤
+│ 2025-01-13      │ Mike       │ Emergency bulb   │
+│ 2025-01-14      │ Sarah      │ Routine check    │
+│ 2025-01-14      │ Mike       │ Socket repair    │
+│ 2025-01-15      │ Sarah      │ LED upgrade      │
+│ 2025-01-15      │ John       │ Bulb replacement │
+│ 2025-01-16      │ Mike       │ LED upgrade      │
+│ 2025-01-17      │ Sarah      │ Routine check    │
+└─────────────────┴────────────┴──────────────────┘
+
+The script will count:
+- Jan 13: 1 change
+- Jan 14: 2 changes
+- Jan 15: 2 changes
+- Jan 16: 1 change
+- Jan 17: 1 change
+
+And generate running totals for your report.
